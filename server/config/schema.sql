@@ -2,7 +2,7 @@ CREATE DATABASE out_of_office_app;
 use out_of_office_app;
 
 CREATE TABLE employees (
-    id INT AUTO_INCREMENT PRIMARY KEY,
+    id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
     full_name TEXT NOT NULL,
     subdivision VARCHAR(255) NOT NULL,
     position VARCHAR(255) NOT NULL,
