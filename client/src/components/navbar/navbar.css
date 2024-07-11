@@ -1,0 +1,15 @@
+
+
+ul { 
+    text-align: start;
+}
+
+li {
+    border-bottom: 1px solid gray;
+}
+
+
+a.active {
+    color: white;
+    background: rgb(71, 73, 195);
+}
