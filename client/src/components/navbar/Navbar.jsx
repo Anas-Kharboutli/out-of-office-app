@@ -8,7 +8,7 @@ const Navbar = () => {
 
 <ul className="nav flex-column">
   <li className="nav-item">
-    <NavLink className="nav-link" to="/employees">Active</NavLink>
+    <NavLink className="nav-link" to="/employees">Employees</NavLink>
   </li>
   <li className="nav-item">
     <NavLink className="nav-link" to='/projects'>Projects</NavLink>

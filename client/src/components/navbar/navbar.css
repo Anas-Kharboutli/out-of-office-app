@@ -1,4 +1,10 @@
 
+.navbar h1 {
+    margin: 2rem 0 2rem;
+    background: blue;
+    color: white;
+}
+
 
 ul { 
     text-align: start;
