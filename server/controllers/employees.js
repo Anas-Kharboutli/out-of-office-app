@@ -4,19 +4,19 @@ export const getAllEmployees = async (req,res) => {
 
     const [employeesData] = await db.query(`
         SELECT * 
-        FROM employees`);
+        FROM Employees`);
 
         res.status(200).json(employeesData);
 };
 
 export const addEmployee = async (req,res) => {
 
-    const {full_name, subdivision, position, 
-           people_partner, leave_balance, photo } = req.body;
+    const {FullName, Subdivision, Position, 
+        People_Partner, Leave_Balance, Photo } = req.body;
     try {
         const newEmployee = await db.query(`
-            INSERT INTO employees (full_name, subdivision, position, people_partner, leave_balance, photo)
-            VALUES (?,?,?,?,?,?)`, [full_name, subdivision, position, people_partner, leave_balance, photo]);
+            INSERT INTO Employees (FullName, Subdivision, Position, people_partner, leave_balance, photo)
+            VALUES (?,?,?,?,?,?)`, [FullName, Subdivision, Position, People_Partner, Leave_Balance, Photo]);
     
             res.status(201).json(newEmployee);
 
@@ -28,11 +28,11 @@ export const addEmployee = async (req,res) => {
 
 export const employeeStatus = async (req,res) => {
 
-    const { id, status } = req.body;
+    const { ID, Status } = req.body;
     try {
         const newEmployee = await db.query(`
-            UPDATE employees SET status = ?
-            WHERE id = ?`, [status, id]);
+            UPDATE Employees SET Status = ?
+            WHERE ID = ?`, [Status, ID]);
     
             res.status(200).json(newEmployee);
 
@@ -44,30 +44,30 @@ export const employeeStatus = async (req,res) => {
 
 export const updateEmployee = async (req, res) => {
    
-    const { id, full_name, subdivision, position } = req.body;
+    const { ID, FullName, Subdivision, Position } = req.body;
     
     try {
 
-        let query = 'UPDATE employees SET ';
+        let query = 'UPDATE Employees SET ';
         const params = [];
 
-        if (full_name !== '') {
-            query += 'full_name = ?, ';
-            params.push(full_name);
+        if (FullName !== '') {
+            query += 'FullName = ?, ';
+            params.push(FullName);
         }
-        if (subdivision !== '') {
-            query += 'subdivision = ?, ';
-            params.push(subdivision);
+        if (Subdivision !== '') {
+            query += 'Subdivision = ?, ';
+            params.push(Subdivision);
         }
-        if (position !== '') {
-            query += 'position = ?, ';
-            params.push(position);
+        if (Position !== '') {
+            query += 'Position = ?, ';
+            params.push(Position);
         }
 
         query = query.slice(0, -2);
 
-        query += ' WHERE id = ?';
-        params.push(id);
+        query += ' WHERE ID = ?';
+        params.push(ID);
 
         const updateEmployee = await db.query(query, params);
 

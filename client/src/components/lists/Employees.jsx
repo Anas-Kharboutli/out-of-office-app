@@ -1,4 +1,4 @@
-import { React, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { AddEmployee, UpdateStatus, UpdateEmployee } from '../exports';
 
@@ -14,7 +14,7 @@ export const SortIcon = ({ onClick }) => (
 
 const Employees = () => {
 
-  const [ employeesList, setEmployeesList] = useState([]);
+  const [employeesList, setEmployeesList] = useState([]);
   const [sortRows, setSortRows] = useState({ key: 'id', direction: 'ascending' });
   const [searchByName, setSearchByName] = useState("");
 
@@ -52,12 +52,12 @@ const Employees = () => {
   };
 
   const filteredEmployees = sortedEmployees.filter(employee =>
-    employee.full_name.toLowerCase().includes(searchByName.toLowerCase())
+    employee.FullName.toLowerCase().includes(searchByName.toLowerCase())
   );
 
 
   return (
-    <div>
+    <React.Fragment>
       <AddEmployee /> 
       <UpdateStatus modalId={"modal_2"} />
       <UpdateEmployee modalId={"modal_3"} />
@@ -76,33 +76,33 @@ const Employees = () => {
   <thead>
   <tr>
     <th scope="col">
-    <SortIcon onClick={() => requestSort('id')}/> ID </th>
+    <SortIcon onClick={() => requestSort('ID')}/> Employee ID </th>
     <th scope="col" >
-    <SortIcon onClick={() => requestSort('full_name')}/> Full Name </th>
+    <SortIcon onClick={() => requestSort('FullName')}/> Full Name </th>
     <th scope="col" >
-    <SortIcon onClick={() => requestSort('subdivision')}/> Subdivision </th>
+    <SortIcon onClick={() => requestSort('Subdivision')}/> Subdivision </th>
     <th scope="col" >
-    <SortIcon onClick={() => requestSort('position')}/> Position</th>
+    <SortIcon onClick={() => requestSort('Position')}/> Position</th>
     <th scope="col" >
-    <SortIcon onClick={() => requestSort('status')}/> Status</th>
+    <SortIcon onClick={() => requestSort('Status')}/> Status</th>
     <th scope="col" >
-    <SortIcon onClick={() => requestSort('people_partner')}/> People Partner</th>
+    <SortIcon onClick={() => requestSort('People_Partner')}/> People Partner</th>
     <th scope="col" >
-    <SortIcon onClick={() => requestSort('leave_balance')}/> Leave Balance</th>
+    <SortIcon onClick={() => requestSort('Leave_Balance')}/> Leave Balance</th>
     <th scope="col" >
     Photo</th>
   </tr>
   </thead>
   <tbody>
     {filteredEmployees.map((employee) => (
-      <tr key={employee.id}>
-         <th scope="row">{employee.id}</th>
-              <td>{employee.full_name}</td>
-              <td>{employee.subdivision}</td> 
-              <td>{employee.position}</td>
-              <td>{employee.status}</td> 
-              <td>{employee.people_partner}</td> 
-              <td>{employee.leave_balance}</td> 
+      <tr key={employee.ID}>
+         <th scope="row">{employee.ID}</th>
+              <td>{employee.FullName}</td>
+              <td>{employee.Subdivision}</td> 
+              <td>{employee.Position}</td>
+              <td>{employee.Status}</td> 
+              <td>{employee.People_Partner}</td> 
+              <td>{employee.Leave_Balance}</td> 
               <td>{employee.photo ? (
               <img src={`data:image/jpeg;base64,${employee.photo}`} width={20} height={20} alt='Employee' />
               ) : (
@@ -113,7 +113,7 @@ const Employees = () => {
     
   </tbody>
 </table>
-    </div>
+    </React.Fragment>
   )
 }
 

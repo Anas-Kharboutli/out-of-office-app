@@ -3,20 +3,20 @@ import axios from 'axios';
 
 
 const AddEmployee = () => {
-    const [full_name, setFull_name]             = useState(""); 
-    const [subdivision, setSubdivision]         = useState(""); 
-    const [position, setPosition  ]             = useState(""); 
-    const [people_partner, setPeople_partner  ] = useState(""); 
-    const [leave_balance, setLeave_balance  ]   = useState(21); 
-    const [photo, setPhoto ]                    = useState(null); 
+    const [FullName, setFullName]             = useState(""); 
+    const [Subdivision, setSubdivision]         = useState(""); 
+    const [Position, setPosition  ]             = useState(""); 
+    const [People_Partner, setPeople_Partner  ] = useState(""); 
+    const [Leave_Balance, setLeave_Balance  ]   = useState(21); 
+    const [Photo, setPhoto ]                    = useState(null); 
 
  const handleSubmit = async (e) => {
 
     e.preventDefault();
 
     try {
-    const res = await axios.post('http://localhost:8080/api/add_employee', {full_name, subdivision, position, 
-            people_partner, leave_balance, photo });
+    const res = await axios.post('http://localhost:8080/api/add_employee', {FullName, Subdivision, Position, 
+            People_Partner, Leave_Balance, Photo });
 
     if(res.status === 201) {
         console.log(res);
@@ -25,9 +25,9 @@ const AddEmployee = () => {
     } catch (error) {
         console.log(error)
     }
+ };
 
-
- }
+ 
   return (
     <React.Fragment>
     <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Add New Employee</button>
@@ -45,29 +45,36 @@ const AddEmployee = () => {
                 <label htmlFor="full-name" className="col-form-label">Full Name</label>
                 <input required type="text" className="form-control" id="full-name"
                 placeholder='Enter Full Name'
-                value={full_name}
-                onChange={(e) => setFull_name(e.currentTarget.value)}
+                value={FullName}
+                onChange={(e) => setFullName(e.currentTarget.value)}
                 />
               </div>
               <div className=" mb-1">
-              <label htmlFor="subdivision" className="col-form-label">Subdivision</label>
-                <input required type="text" className="form-control" id="subdivision"
-                placeholder='Enter subdivision'
-                value={subdivision}
+              <label htmlFor="Subdivision" className="col-form-label">Subdivision</label>
+                <input required type="text" className="form-control" id="Subdivision"
+                placeholder='Enter Subdivision'
+                value={Subdivision}
                 onChange={(e) => setSubdivision(e.currentTarget.value)}   
                 />
               </div>
               <div className=" mb-1">
-              <label htmlFor="position" className="col-form-label">Position</label>
-              <input 
+              <label htmlFor="Position" className="col-form-label">Position</label>
+              <select
                     required
-                    type="text" 
-                    className="form-control" 
-                    id="position"
-                    value={position}
-                    onChange={(e) => setPosition(e.target.value)}
-                  />
-              </div>
+                    className="form-select"
+                    aria-label="Default select example"
+                    id={'status-modalId'}
+                    value={Position}
+                    onChange={(e) => setPosition(e.currentTarget.value)}
+                  >
+                    <option value="">Select Position</option>
+                    <option value="Associate">Associate</option>
+                    <option value="Team Lead">Team Lead</option>
+                    <option value="Operations Manager">Operations Manager</option>
+                    <option value="HR Manager">HR Manager</option>
+                    <option value="Project Manager">Project Manager</option>
+                  </select>
+                </div>
 
               <div className=" mb-1">
               <label htmlFor="people-partner" className="col-form-label">People Partner</label>
@@ -76,8 +83,8 @@ const AddEmployee = () => {
                     type="number" 
                     className="form-control" 
                     id="people-partner"
-                    value={people_partner}
-                    onChange={(e) => setPeople_partner(Number(e.target.value))}
+                    value={People_Partner}
+                    onChange={(e) => setPeople_Partner(Number(e.target.value))}
                   />
                 </div>
 
@@ -88,17 +95,17 @@ const AddEmployee = () => {
                     type="number" 
                     className="form-control" 
                     id="leave-balance"
-                    value={leave_balance}
-                    onChange={(e) => setLeave_balance(e.target.value)}
+                    value={Leave_Balance}
+                    onChange={(e) => setLeave_Balance(e.target.value)}
                   />
                 </div>
 
                 <div className="mb-1">
-                  <label htmlFor="photo" className="col-form-label">Photo (optional)</label>
+                  <label htmlFor="Photo" className="col-form-label">Photo (optional)</label>
                   <input 
                     type="file" 
                     className="form-control" 
-                    id="photo"
+                    id="Photo"
                     onChange={(e) => setPhoto(e.target.files)}
                   />
                 </div>

@@ -2,14 +2,15 @@ import React, { useState } from 'react';
 import axios from 'axios';
 
 const UpdateStatus = ({ modalId }) => {
-  const [id, setId] = useState("");
-  const [status, setStatus] = useState(""); 
+  const [ID, setID] = useState("");
+  const [Status, setStatus] = useState(""); 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      const res = await axios.post('http://localhost:8080/api/update_status', { id, status });
+      const res = await axios.post('http://localhost:8080/api/update_status', 
+        { ID, Status });
 
       if (res.status === 200) {
         console.log(res);
@@ -43,8 +44,8 @@ const UpdateStatus = ({ modalId }) => {
                     type="number"
                     className="form-control"
                     id={`id-${modalId}`}
-                    value={id}
-                    onChange={(e) => setId(Number(e.target.value))}
+                    value={ID}
+                    onChange={(e) => setID(Number(e.target.value))}
                   />
                 </div>
 
@@ -55,7 +56,7 @@ const UpdateStatus = ({ modalId }) => {
                     className="form-select"
                     aria-label="Default select example"
                     id={`status-${modalId}`}
-                    value={status}
+                    value={Status}
                     onChange={(e) => setStatus(e.currentTarget.value)}
                   >
                     <option value="">Change Status</option>
@@ -66,7 +67,7 @@ const UpdateStatus = ({ modalId }) => {
                
                 <div className="modal-footer">
                   <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                  <button type="submit" className="btn btn-primary">Confirm</button>
+                  <button type="submit" className="btn btn-primary">Update</button>
                 </div>
               </form>
             </div>

@@ -3,16 +3,17 @@ import axios from 'axios';
 
 const UpdateEmployee = ({ modalId }) => {
 
-    const [id,          setId]          = useState("");
-    const [full_name,   setFull_name]   = useState(""); 
-    const [subdivision, setSubdivision] = useState(""); 
-    const [position,    setPosition  ]  = useState(""); 
+    const [ID,          setID]          = useState("");
+    const [FullName,   setFullName]   = useState(""); 
+    const [Subdivision, setSubdivision] = useState(""); 
+    const [Position,    setPosition  ]  = useState(""); 
 
     const handleSubmit = async (e) => {
         e.preventDefault();
     
         try {
-          const res = await axios.post('http://localhost:8080/api/update_employee', { id, full_name, subdivision, position });
+          const res = await axios.post('http://localhost:8080/api/update_employee', 
+            { ID, FullName, Subdivision, Position });
     
           if (res.status === 200) {
             console.log(res);
@@ -33,7 +34,7 @@ const UpdateEmployee = ({ modalId }) => {
         <div className="modal-dialog">
           <div className="modal-content">
             <div className="modal-header">
-              <h1 className="modal-title fs-5" id="exampleModalLabel">Update Status</h1>
+              <h1 className="modal-title fs-5" id="exampleModalLabel">Update Employee Info</h1>
               <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div className="modal-body">
@@ -46,8 +47,8 @@ const UpdateEmployee = ({ modalId }) => {
                     type="number"
                     className="form-control"
                     id={`id-${modalId}`}
-                    value={id}
-                    onChange={(e) => setId(Number(e.target.value))}
+                    value={ID}
+                    onChange={(e) => setID(Number(e.target.value))}
                   />
                 </div>
 
@@ -55,32 +56,40 @@ const UpdateEmployee = ({ modalId }) => {
                 <label htmlFor="full-name" className="col-form-label">Full Name</label>
                 <input type="text" className="form-control" id="full-name"
                 placeholder='Enter Full Name'
-                value={full_name}
-                onChange={(e) => setFull_name(e.currentTarget.value)}
+                value={FullName}
+                onChange={(e) => setFullName(e.currentTarget.value)}
                 />
               </div>
               <div className=" mb-1">
-              <label htmlFor="subdivision" className="col-form-label">Subdivision</label>
-                <input type="text" className="form-control" id="subdivision"
-                placeholder='Enter subdivision'
-                value={subdivision}
+              <label htmlFor="Subdivision" className="col-form-label">Subdivision</label>
+                <input type="text" className="form-control" id="Subdivision"
+                placeholder='Enter Subdivision'
+                value={Subdivision}
                 onChange={(e) => setSubdivision(e.currentTarget.value)}   
                 />
               </div>
               <div className=" mb-1">
-              <label htmlFor="position" className="col-form-label">Position</label>
-              <input 
-                    type="text" 
-                    className="form-control" 
-                    id="position"
-                    value={position}
-                    onChange={(e) => setPosition(e.target.value)}
-                  />
+              <label htmlFor="Position" className="col-form-label">Position</label>
+              <select
+                    required
+                    className="form-select"
+                    aria-label="Default select example"
+                    id={'status-modalId'}
+                    value={Position}
+                    onChange={(e) => setPosition(e.currentTarget.value)}
+                  >
+                    <option value="">Select Position</option>
+                    <option value="Associate">Associate</option>
+                    <option value="Team Lead">Team Lead</option>
+                    <option value="Operations Manager">Operations Manager</option>
+                    <option value="HR Manager">HR Manager</option>
+                    <option value="Project Manager">Project Manager</option>
+                  </select>
               </div>
                
                 <div className="modal-footer">
                   <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                  <button type="submit" className="btn btn-primary">Confirm</button>
+                  <button type="submit" className="btn btn-primary">Update</button>
                 </div>
               </form>
             </div>
