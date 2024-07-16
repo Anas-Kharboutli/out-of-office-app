@@ -41,3 +41,37 @@ export const addLeaveRqst = async (req, res) => {
         res.status(500).json({ error: 'Error adding Leave Request' });
     }
 };
+
+
+export const cancelLeaveRqst = async (req, res) => {
+    const { ID, Status } = req.body;
+    
+    try {
+
+        await db.query('START TRANSACTION');
+
+        const [cancelLeaveRequest] = await db.query(`
+            UPDATE LeaveRequest SET Status = ?
+            WHERE ID = ?`, [Status, ID]);
+    
+       const [approvalRequest] = await db.query('SELECT ID FROM ApprovalRequest WHERE LeaveRequest = ?', [ID]);
+
+       if (approvalRequest.length > 0) {
+           const approvalId = approvalRequest[0].ID;
+
+           await db.query(`
+               UPDATE ApprovalRequest SET Status = 'Canceled'
+               WHERE ID = ?`, [approvalId]);
+       }
+
+        await db.query('COMMIT');
+
+        res.status(200).json({ message: 'Leave request and approval request canceled successfully' });
+
+    } catch (error) {
+        // Rollback transaction in case of error
+        await db.query('ROLLBACK');
+        console.error('Error cancelling Leave Request:', error);
+        res.status(500).json({ error: 'Error cancelling Leave Request' });
+    }
+};

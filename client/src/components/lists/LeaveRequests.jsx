@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { SortIcon } from '../exports';
-import { AddLeaveRequest } from '../exports';
-
+import { SortIcon, AddLeaveRequest, CancelLeaveRequest  } from '../exports';
 
 const LeaveRequests = () => {
 
@@ -52,6 +50,7 @@ const LeaveRequests = () => {
     <React.Fragment>
       
       <AddLeaveRequest modalId={"modal_4"}/>
+      <CancelLeaveRequest modalId={"modal_5"}/>
 
       
      <div className='w-25'>

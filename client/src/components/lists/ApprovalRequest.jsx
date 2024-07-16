@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { SortIcon } from '../exports';
+import { SortIcon, ApprovalUpdate } from '../exports';
 
 const ApprovalRequest = () => {
 
@@ -48,6 +48,8 @@ const ApprovalRequest = () => {
 
   return (
     <React.Fragment>
+
+      <ApprovalUpdate modalId={"modal_6"}/>
       <div className='w-25'>
         <input
           type="number"
