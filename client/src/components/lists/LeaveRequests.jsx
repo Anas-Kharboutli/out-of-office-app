@@ -98,7 +98,7 @@ const LeaveRequests = () => {
               <td style={{
                 fontWeight: "600",
                 color: "white",
-                background: leave.Status === "Approved" ? 'rgb(119, 207, 104)' : 'red'}}>
+                background: leave.Status === "Approved" || leave.Status === "Submitted" ? 'rgb(119, 207, 104)' : 'red'}}>
                   {leave.Status}</td>
               <td>{leave.Comment}</td>           
       </tr>

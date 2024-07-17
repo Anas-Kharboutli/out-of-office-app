@@ -4,7 +4,7 @@ export const getAllApprovalRqst = async (req,res) => {
 
     const [approvalRequests] = await db.query(`
         SELECT * 
-        FROM approvalRequest`);
+        FROM ApprovalRequest`);
         
         res.status(200).json(approvalRequests);
 };

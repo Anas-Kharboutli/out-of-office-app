@@ -17,5 +17,5 @@ app.use('/api', leaveRoute);
 app.use('/api', approvalRoute);
 app.use('/api', projectRoute);
 
-const port = process.env.PORT;
+const port = process.env.PORT || 8080;
 app.listen(port, () => console.log(`Server running on port: ${port}`));

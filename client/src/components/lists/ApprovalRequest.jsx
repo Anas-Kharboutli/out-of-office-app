@@ -91,7 +91,7 @@ const ApprovalRequest = () => {
               <td style={{
                 fontWeight: "600",
                 color: "white",
-                background: approval.Status === "Approved" ? 'rgb(119, 207, 104)' : 'red'}}>
+                background: approval.Status === "Approved" || approval.Status === "New" ? 'rgb(119, 207, 104)' : 'red'}}>
                   {approval.Status}</td>
               <td>{approval.Comment}</td>         
       </tr>
