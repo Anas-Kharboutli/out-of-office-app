@@ -17,6 +17,7 @@ const Employees = () => {
   const [employeesList, setEmployeesList] = useState([]);
   const [sortRows, setSortRows] = useState({ key: 'id', direction: 'ascending' });
   const [searchByName, setSearchByName] = useState("");
+  const role = localStorage.getItem("role");
 
 
   useEffect(() => {
@@ -58,11 +59,16 @@ const Employees = () => {
 
   return (
     <React.Fragment>
-      <AddEmployee /> 
-      <UpdateStatus modalId={"modal_2"} />
-      <UpdateEmployee modalId={"modal_3"} />
-
-      <div className='w-25'>
+      {role === "hr" ? 
+       <div className='function-btns'>
+       <AddEmployee /> 
+       <UpdateStatus modalId={"modal_2"} />
+       <UpdateEmployee modalId={"modal_3"} />
+       </div> 
+       :
+       <></>
+    }
+      <div className='search-btn w-25'>
         <input
           type="text"
           className="form-control"
@@ -72,7 +78,7 @@ const Employees = () => {
         />
       </div>
 
-      <table className="table table-hover">
+  <table className="table table-hover">
   <thead>
   <tr>
     <th scope="col">
@@ -100,7 +106,11 @@ const Employees = () => {
               <td>{employee.FullName}</td>
               <td>{employee.Subdivision}</td> 
               <td>{employee.Position}</td>
-              <td>{employee.Status}</td> 
+              <td style={{
+                fontWeight: "600",
+                color: "white",
+                background: employee.Status === "inactive" ? 'red' : 'rgb(119, 207, 104)'}}>
+                  {employee.Status}</td> 
               <td>{employee.People_Partner}</td> 
               <td>{employee.Leave_Balance}</td> 
               <td>{employee.photo ? (

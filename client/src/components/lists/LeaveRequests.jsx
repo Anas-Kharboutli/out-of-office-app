@@ -7,6 +7,7 @@ const LeaveRequests = () => {
   const [leaveRequests, setLeaveRequests] = useState([]);
   const [sortRows, setSortRows] = useState({ key: 'id', direction: 'ascending' });
   const [searchByNumber, setSearchByNumber] = useState("");
+  const role = localStorage.getItem("role");
 
 
   useEffect(() => {
@@ -48,12 +49,16 @@ const LeaveRequests = () => {
 
   return (
     <React.Fragment>
-      
+
+      {role === 'employee' ?
+      <div className='function-btns'>      
       <AddLeaveRequest modalId={"modal_4"}/>
       <CancelLeaveRequest modalId={"modal_5"}/>
-
-      
-     <div className='w-25'>
+      </div>
+      :
+      <></>
+      }
+     <div className='w-25 search-btn'>
         <input
           type="number"
           className="form-control"
@@ -90,7 +95,11 @@ const LeaveRequests = () => {
               <td>{leave.AbsenceReason}</td> 
               <td>{leave.StartDate}</td>
               <td>{leave.EndDate}</td> 
-              <td>{leave.Status}</td> 
+              <td style={{
+                fontWeight: "600",
+                color: "white",
+                background: leave.Status === "Approved" ? 'rgb(119, 207, 104)' : 'red'}}>
+                  {leave.Status}</td>
               <td>{leave.Comment}</td>           
       </tr>
     ))}

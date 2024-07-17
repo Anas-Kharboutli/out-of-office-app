@@ -7,6 +7,7 @@ const ApprovalRequest = () => {
   const [approvalRequests, setApprovalRequests] = useState([]);
   const [sortRows, setSortRows] = useState({ key: 'id', direction: 'ascending' });
   const [searchByNumber, setSearchByNumber] = useState("");
+  const role = localStorage.getItem("role");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -49,8 +50,14 @@ const ApprovalRequest = () => {
   return (
     <React.Fragment>
 
+      {role === "employee" ? 
+      <></>
+    :
+    <div className='function-btns'>
       <ApprovalUpdate modalId={"modal_6"}/>
-      <div className='w-25'>
+      </div>
+    }
+      <div className='w-25 search-btn'>
         <input
           type="number"
           className="form-control"
@@ -81,13 +88,16 @@ const ApprovalRequest = () => {
          <th scope="row">{approval.ID}</th>
               <td>{approval.Approver}</td>
               <td>{approval.LeaveRequest}</td> 
-              <td>{approval.Status}</td>
+              <td style={{
+                fontWeight: "600",
+                color: "white",
+                background: approval.Status === "Approved" ? 'rgb(119, 207, 104)' : 'red'}}>
+                  {approval.Status}</td>
               <td>{approval.Comment}</td>         
       </tr>
     ))}
   </tbody>
 </table>
-
     </React.Fragment>
   )
 }

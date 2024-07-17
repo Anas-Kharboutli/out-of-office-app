@@ -44,5 +44,6 @@ CREATE TABLE Project (
     ProjectManager INT NOT NULL,
     Comment TEXT,
     Status ENUM('active', 'inactive') DEFAULT 'active' NOT NULL,
-    PRIMARY KEY (ID)
-)
+    PRIMARY KEY (ID),
+    FOREIGN KEY (ProjectManager) REFERENCES Employees(ID)
+);

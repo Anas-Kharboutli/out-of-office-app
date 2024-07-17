@@ -34,7 +34,7 @@ const UpdateEmployee = ({ modalId }) => {
         <div className="modal-dialog">
           <div className="modal-content">
             <div className="modal-header">
-              <h1 className="modal-title fs-5" id="exampleModalLabel">Update Employee Info</h1>
+              <h1 className="modal-title fs-5" id="exampleModalLabel">Edit Employee Info</h1>
               <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div className="modal-body">
@@ -71,7 +71,6 @@ const UpdateEmployee = ({ modalId }) => {
               <div className=" mb-1">
               <label htmlFor="Position" className="col-form-label">Position</label>
               <select
-                    required
                     className="form-select"
                     aria-label="Default select example"
                     id={'status-modalId'}

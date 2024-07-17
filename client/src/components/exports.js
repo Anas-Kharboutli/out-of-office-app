@@ -9,7 +9,10 @@ import UpdateEmployee from './utils/employee/UpdateEmployee.jsx';
 import AddLeaveRequest from './utils/leave/AddLeaveRequest.jsx';
 import CancelLeaveRequest from './utils/leave/CancelLeaveRequest.jsx';
 import ApprovalUpdate from './utils/approval/ApprovalUpdate.jsx';
+import AddProject from './utils/project/AddProject.jsx';
+import ProjectStatus from './utils/project/ProjectStatus.jsx';
+import LoginPage from './main/LoginPage.jsx';
 
 export { Employees, Projects, LeaveRequest, ApprovalRequest, 
          AddEmployee, SortIcon, UpdateStatus, UpdateEmployee, AddLeaveRequest,
-        CancelLeaveRequest, ApprovalUpdate };
+         CancelLeaveRequest, ApprovalUpdate, AddProject, ProjectStatus, LoginPage };

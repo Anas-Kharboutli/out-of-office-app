@@ -28,7 +28,7 @@ const ApprovalUpdate = ({modalId}) => {
   return (
     <React.Fragment>
     <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target={`#${modalId}`}>
-      Update Approval Request
+      Approve / Reject Leave
     </button>
 
     <div className="modal fade" id={modalId} tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

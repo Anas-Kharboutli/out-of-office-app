@@ -1,0 +1,18 @@
+.login-container {
+    text-align: center;
+}
+
+.login-container h1 {
+    margin: 2rem 0;
+}
+
+.login-container h4 {
+    text-align: start;
+    margin: 0 0 1rem 3rem;
+}
+
+.login-container > .btn-group {
+    display: flex;
+    gap: 2rem;
+    margin: 0 3rem 1rem;
+}

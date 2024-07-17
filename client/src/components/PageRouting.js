@@ -1,10 +1,11 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { Employees, Projects, LeaveRequest, ApprovalRequest } from './exports';
+import { Employees, Projects, LeaveRequest, ApprovalRequest, LoginPage } from './exports';
 
-const PageRouting = () => {
+export const PageRouting = () => {
   return (
     <Routes>
+        <Route path='/'  exact         element={<LoginPage/>} /> 
         <Route path='/employees'       element={<Employees/>} /> 
         <Route path='/projects'        element={<Projects/>} /> 
         <Route path='/leaveRequest'    element={<LeaveRequest/>} /> 
@@ -13,4 +14,9 @@ const PageRouting = () => {
   )
 }
 
-export default PageRouting
+
+export default PageRouting;
+
+
+
+

@@ -30,11 +30,11 @@ export const employeeStatus = async (req,res) => {
 
     const { ID, Status } = req.body;
     try {
-        const newEmployee = await db.query(`
+        const updateStatus = await db.query(`
             UPDATE Employees SET Status = ?
             WHERE ID = ?`, [Status, ID]);
     
-            res.status(200).json(newEmployee);
+            res.status(200).json(updateStatus);
 
     } catch (error) {
         console.error('Error updating status:', error);

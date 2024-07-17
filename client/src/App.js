@@ -4,10 +4,11 @@ import PageRouting from './components/PageRouting';
 
 function App() {
   return (
-    <div className="App">
+  <>
      <Navbar />
-     <PageRouting />
-    </div>
+     <PageRouting/>
+   
+  </>
   );
 }
 
