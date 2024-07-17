@@ -12,7 +12,7 @@ const ApprovalRequest = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:8080/api/get_all_approval');
+        const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api/get_all_approval`);
         setApprovalRequests(response.data);
       } catch (error) {
         console.error('Failed to fetch Approval Requests from MySQL:', error);

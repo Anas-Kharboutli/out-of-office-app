@@ -10,7 +10,7 @@ const CancelLeaveRequest = ({ modalId }) => {
     e.preventDefault();
 
     try {
-      const res = await axios.post('http://localhost:8080/api/cancel_leave-Request', 
+      const res = await axios.post(`${process.env.REACT_APP_SERVER_URL}/api/cancel_leave-Request`, 
         { ID, Status });
 
       if (res.status === 200) {

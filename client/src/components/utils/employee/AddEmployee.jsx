@@ -15,7 +15,7 @@ const AddEmployee = () => {
     e.preventDefault();
 
     try {
-    const res = await axios.post('http://localhost:8080/api/add_employee', {FullName, Subdivision, Position, 
+    const res = await axios.post(`${process.env.REACT_APP_SERVER_URL}/api/add_employee`, {FullName, Subdivision, Position, 
             People_Partner, Leave_Balance, Photo });
 
     if(res.status === 201) {

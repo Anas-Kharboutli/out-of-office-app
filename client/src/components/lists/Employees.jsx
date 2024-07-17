@@ -23,7 +23,7 @@ const Employees = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:8080/api/get_all_employees');
+        const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api/get_all_employees`);
         setEmployeesList(response.data);
       } catch (error) {
         console.error('Failed to fetch Employees from MySQL:', error);

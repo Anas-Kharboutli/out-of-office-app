@@ -12,7 +12,7 @@ const ApprovalUpdate = ({modalId}) => {
         e.preventDefault();
     
         try {
-          const res = await axios.post('http://localhost:8080/api/update_approval', 
+          const res = await axios.post(`${process.env.REACT_APP_SERVER_URL}/api/update_approval`, 
             { LeaveRequestId, Status, Comment });
     
           if (res.status === 200) {

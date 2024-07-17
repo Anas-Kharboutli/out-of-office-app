@@ -14,7 +14,7 @@ const AddProject = ({modalId}) => {
         e.preventDefault();
     
         try {
-        const res = await axios.post('http://localhost:8080/api/add_new_project', {ProjectType, StartDate, EndDate, 
+        const res = await axios.post(`${process.env.REACT_APP_SERVER_URL}/api/add_new_project`, {ProjectType, StartDate, EndDate, 
             ProjectManager, Comment });
     
         if(res.status === 201) {

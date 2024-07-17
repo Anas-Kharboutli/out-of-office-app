@@ -13,7 +13,7 @@ const Projects = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:8080/api/get_all_projects');
+        const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api/get_all_projects`);
         setProjectsList(response.data);
       } catch (error) {
         console.error('Failed to fetch Leave Requests from MySQL:', error);

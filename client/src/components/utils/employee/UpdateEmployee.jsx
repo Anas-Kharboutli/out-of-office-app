@@ -12,7 +12,7 @@ const UpdateEmployee = ({ modalId }) => {
         e.preventDefault();
     
         try {
-          const res = await axios.post('http://localhost:8080/api/update_employee', 
+          const res = await axios.post(`${process.env.REACT_APP_SERVER_URL}/api/update_employee`, 
             { ID, FullName, Subdivision, Position });
     
           if (res.status === 200) {

@@ -15,7 +15,7 @@ const AddLeaveRequest = ({ modalId }) => {
         e.preventDefault();
     
         try {
-        const res = await axios.post('http://localhost:8080/api/create_new_leave', {Employee, AbsenceReason, StartDate, 
+        const res = await axios.post(`${process.env.REACT_APP_SERVER_URL}/api/create_new_leave`, {Employee, AbsenceReason, StartDate, 
             EndDate, Comment });
     
         if(res.status === 201) {
