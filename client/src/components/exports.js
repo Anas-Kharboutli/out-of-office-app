@@ -12,7 +12,9 @@ import ApprovalUpdate from './utils/approval/ApprovalUpdate.jsx';
 import AddProject from './utils/project/AddProject.jsx';
 import ProjectStatus from './utils/project/ProjectStatus.jsx';
 import LoginPage from './main/LoginPage.jsx';
+import Decsription from './main/Decsription.jsx';
 
 export { Employees, Projects, LeaveRequest, ApprovalRequest, 
          AddEmployee, SortIcon, UpdateStatus, UpdateEmployee, AddLeaveRequest,
-         CancelLeaveRequest, ApprovalUpdate, AddProject, ProjectStatus, LoginPage };
+         CancelLeaveRequest, ApprovalUpdate, AddProject, ProjectStatus, 
+         LoginPage, Decsription };

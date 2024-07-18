@@ -69,7 +69,7 @@ export const cancelLeaveRqst = async (req, res) => {
         res.status(200).json({ message: 'Leave request and approval request canceled successfully' });
 
     } catch (error) {
-        // Rollback transaction in case of error
+
         await db.query('ROLLBACK');
         console.error('Error cancelling Leave Request:', error);
         res.status(500).json({ error: 'Error cancelling Leave Request' });

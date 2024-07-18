@@ -1,6 +1,6 @@
 import React from 'react';
 import './loginPage.css';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const LoginPage = () => {
 
@@ -30,7 +30,17 @@ const LoginPage = () => {
      onClick={() => {handleClick('projectManager'); navigate('/employees');}}
      >Project Manager</button>
     </div>
-      
+
+    <h2 className='mt-5'>Full code on Github 
+       <a href='https://github.com/Anas-Kharboutli/out-of-office-app'
+      target='_blank' rel="noreferrer"> Link</a>
+    </h2>
+
+    <h2>
+      Description of App and SQL Queries 
+      <Link to='/description'> Show</Link>
+
+    </h2>     
     </div>
   )
 }
