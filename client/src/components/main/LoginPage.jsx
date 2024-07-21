@@ -39,8 +39,9 @@ const LoginPage = () => {
     <h2>
       Description of App and SQL Queries 
       <Link to='/description'> Show</Link>
+    </h2>  
 
-    </h2>     
+    <h5>P.S If SQL Database didn't render immediately please refresh after 5 sec.</h5>   
     </div>
   )
 }
